@@ -24,39 +24,44 @@ const gameBoard = (() => {
    let squarearr = Array.from(square)
     squarearr.forEach((square, index) => {
        square.addEventListener('click', () => {
-       square.innerHTML = displayController.Player2.mark
+        square.innerHTML = displayController.activeUser.mark
         displayController.switchTurn()
        })
    })
+   
     return {
         board,
     };
     })();
 
+
+
 //display module
 const displayController = (() => {
+    let square = document.querySelectorAll('.grid-square')
+   
+
     //making players
     const Player1 = Player('player', 'X')
     const Player2 = Player('player2', 'O')
     
     //switch turns 
-    let turn = false; 
+    let activeUser = Player1; 
+
     function switchTurn() {
-      if (displayController.turn === false){
-        displayController.turn = true
-        gameBoard.square.innerHTML = displayController.Player1.mark
+      if (displayController.activeUser == Player1){
+        displayController.activeUser = Player2
       }
       else {
-          displayController.turn = false;
-          gameBoard.square.innerHTML = displayController.Player2.mark
-          console.log(displayController.turn)
-    }       
+          displayController.activeUser = Player1
+    }    
+
     }
     return {
         Player1,
         Player2,
         switchTurn,
-        turn
+        activeUser
     };
 })()
 
