@@ -19,8 +19,8 @@ header {
 }
 
 .game-area {
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -32,5 +32,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 3rem;
+    line-height: 0px;
+
 }
