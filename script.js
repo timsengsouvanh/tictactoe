@@ -26,9 +26,13 @@ const gameBoard = (() => {
        square.addEventListener('click', () => {
         if (square.innerHTML == "") { //stops overwriting previous marks
         square.innerHTML = displayController.activeUser.mark
+        board[index] = displayController.activeUser.mark
+        square.setAttribute('data', displayController.activeUser.mark)
         displayController.switchTurn()
+        console.log(board)
+        displayController.checkWinner()
         }
-
+        
        })
    })
    
@@ -50,7 +54,6 @@ const displayController = (() => {
     
     //switch turns 
     let activeUser = Player1; 
-
     function switchTurn() {
       if (displayController.activeUser == Player1){
         displayController.activeUser = Player2
@@ -59,12 +62,26 @@ const displayController = (() => {
           displayController.activeUser = Player1
     }    
 
+    }
+
+    let winningCombinations = [
+        [0,1,2],
+    ]
+
+    function checkWinner (){
+       if (gameBoard.board[1] == Player1.mark){
+           console.log('winner')
+       }
+       else console.log('havent won')
 
     }
+
     return {
         Player1,
         Player2,
         switchTurn,
+        checkWinner,
+        winningCombinations,
         activeUser
     };
 })()
