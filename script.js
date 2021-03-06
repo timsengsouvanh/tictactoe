@@ -24,8 +24,11 @@ const gameBoard = (() => {
    let squarearr = Array.from(square)
     squarearr.forEach((square, index) => {
        square.addEventListener('click', () => {
+        if (square.innerHTML == "") { //stops overwriting previous marks
         square.innerHTML = displayController.activeUser.mark
         displayController.switchTurn()
+        }
+
        })
    })
    
@@ -55,6 +58,7 @@ const displayController = (() => {
       else {
           displayController.activeUser = Player1
     }    
+
 
     }
     return {
