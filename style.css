@@ -10,6 +10,11 @@ header {
     font-size: 3rem;
 }
 
+button {
+    margin-top: 20px;
+    padding: 10px;
+}
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -19,7 +24,7 @@ header {
 }
 
 .winning-area {
-    padding-top: 50px;
+    padding-top: 30px;
     font-size: 3rem;
 }
 

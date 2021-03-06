@@ -31,13 +31,11 @@ const gameBoard = (() => {
          displayController.checkWinner()
          console.log(board)
          displayController.switchTurn()
-        
-       
         }
-        
        })
    })
-   
+
+
     return {
         board,
     };
@@ -65,7 +63,7 @@ const displayController = (() => {
           console.log(displayController.activeUser)
     }    
     }
-
+    
     let winningCombinations = [
         [0,1,2],
         [3,4,5],
@@ -77,11 +75,12 @@ const displayController = (() => {
         [2,4,6],
     ];
 
+    let wrapper = document.querySelector('.wrapper')
+    let winningArea = document.createElement('div')
+
     function checkWinner (){
        winningCombinations.forEach((item) => {
         if (gameBoard.board[item[0]] === displayController.activeUser.mark && gameBoard.board[item[1]] === displayController.activeUser.mark && gameBoard.board[item[2]] === displayController.activeUser.mark){
-            let wrapper = document.querySelector('.wrapper')
-            let winningArea = document.createElement('div')
             winningArea.innerHTML = displayController.activeUser.name + ' wins!'
             winningArea.classList.add('winning-area')
             wrapper.appendChild(winningArea)
@@ -89,11 +88,26 @@ const displayController = (() => {
        })
     }
 
+    function newGame () {
+        let square = document.querySelectorAll('.grid-square')
+        let squarearr = Array.from(square)
+        gameBoard.board.forEach((item,index) => {
+         item = ""
+        })
+        squarearr.forEach((square) => {
+            square.innerHTML = ""
+            winningArea.innerHTML = ""
+
+       })
+       }
+    
+
     return {
         Player1,
         Player2,
         switchTurn,
         checkWinner,
+        newGame,
         winningCombinations,
         activeUser
     };
