@@ -91,8 +91,8 @@ const displayController = (() => {
     function newGame () {
         let square = document.querySelectorAll('.grid-square')
         let squarearr = Array.from(square)
-        gameBoard.board.forEach((item,index) => {
-         item = ""
+        gameBoard.board.forEach((x, index) => {
+            gameBoard.board[index] = ""
         })
         squarearr.forEach((square) => {
             square.innerHTML = ""
