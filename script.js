@@ -28,9 +28,11 @@ const gameBoard = (() => {
         square.innerHTML = displayController.activeUser.mark
         board[index] = displayController.activeUser.mark
         square.setAttribute('data', displayController.activeUser.mark)
-        displayController.switchTurn()
-        console.log(board)
-        displayController.checkWinner()
+         displayController.checkWinner()
+         console.log(board)
+         displayController.switchTurn()
+        
+       
         }
         
        })
@@ -55,24 +57,35 @@ const displayController = (() => {
     //switch turns 
     let activeUser = Player1; 
     function switchTurn() {
-      if (displayController.activeUser == Player1){
+      if (displayController.activeUser === Player1){
         displayController.activeUser = Player2
+        console.log(displayController.activeUser)
       }
       else {
           displayController.activeUser = Player1
+          console.log(displayController.activeUser)
     }    
 
     }
 
     let winningCombinations = [
         [0,1,2],
-    ]
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6],
+    ];
 
     function checkWinner (){
-       if (gameBoard.board[1] == Player1.mark){
-           console.log('winner')
-       }
-       else console.log('havent won')
+       winningCombinations.forEach((item) => {
+        if (gameBoard.board[item[0]] === displayController.activeUser.mark && gameBoard.board[item[1]] === displayController.activeUser.mark && gameBoard.board[item[2]] === displayController.activeUser.mark){
+        alert('winner is ' + displayController.activeUser.mark)
+        }
+       })
+       
 
     }
 
