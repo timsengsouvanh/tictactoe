@@ -49,10 +49,9 @@ const gameBoard = (() => {
 const displayController = (() => {
     let square = document.querySelectorAll('.grid-square')
    
-
     //making players
-    const Player1 = Player('player', 'X')
-    const Player2 = Player('player2', 'O')
+    const Player1 = Player('Player 1', 'X')
+    const Player2 = Player('Player 2', 'O')
     
     //switch turns 
     let activeUser = Player1; 
@@ -65,7 +64,6 @@ const displayController = (() => {
           displayController.activeUser = Player1
           console.log(displayController.activeUser)
     }    
-
     }
 
     let winningCombinations = [
@@ -82,11 +80,13 @@ const displayController = (() => {
     function checkWinner (){
        winningCombinations.forEach((item) => {
         if (gameBoard.board[item[0]] === displayController.activeUser.mark && gameBoard.board[item[1]] === displayController.activeUser.mark && gameBoard.board[item[2]] === displayController.activeUser.mark){
-        alert('winner is ' + displayController.activeUser.mark)
+            let wrapper = document.querySelector('.wrapper')
+            let winningArea = document.createElement('div')
+            winningArea.innerHTML = displayController.activeUser.name + ' wins!'
+            winningArea.classList.add('winning-area')
+            wrapper.appendChild(winningArea)
         }
        })
-       
-
     }
 
     return {

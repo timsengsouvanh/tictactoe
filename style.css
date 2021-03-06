@@ -18,6 +18,11 @@ header {
     width: 700px;
 }
 
+.winning-area {
+    padding-top: 50px;
+    font-size: 3rem;
+}
+
 .game-area {
     height: 300px;
     width: 300px;
