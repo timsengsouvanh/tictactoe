@@ -12,7 +12,15 @@ header {
 
 button {
     margin-top: 20px;
-    padding: 10px;
+    padding: 8px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer
 }
 
 .wrapper {
@@ -45,4 +53,8 @@ button {
     font-size: 3rem;
     line-height: 0px;
 
+}
+
+.grid-square:hover {
+    cursor: pointer;
 }
