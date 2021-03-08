@@ -57,6 +57,10 @@ button:hover {
 
 }
 
+.victory {
+    background-color: yellow;
+}
+
 .grid-square:hover {
     cursor: pointer;
     background-color: rgb(202, 199, 199);

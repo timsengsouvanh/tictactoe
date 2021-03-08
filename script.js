@@ -58,7 +58,7 @@ const displayController = (() => {
     //number of moves
     let moves = 0
 
-    //winner
+    //sets winner for check tie function
     let winner = false;
 
     //switch turns 
@@ -101,7 +101,9 @@ const displayController = (() => {
 
     function checkTie (){
      if (displayController.moves === 9 && winner == false) {
-         alert('tie')
+        winningArea.innerHTML = 'Game is Drawn'
+        winningArea.classList.add('winning-area')
+        wrapper.appendChild(winningArea)
      }
         }
 
