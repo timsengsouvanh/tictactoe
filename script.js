@@ -31,7 +31,11 @@ const gameBoard = (() => {
          displayController.checkWinner()
          console.log(board)
          displayController.switchTurn()
+         displayController.moves++
+         console.log(displayController.moves)
+         displayController.checkTie()
         }
+
        })
    })
 
@@ -51,6 +55,12 @@ const displayController = (() => {
     const Player1 = Player('Player 1', 'X')
     const Player2 = Player('Player 2', 'O')
     
+    //number of moves
+    let moves = 0
+
+    //winner
+    let winner = false;
+
     //switch turns 
     let activeUser = Player1; 
     function switchTurn() {
@@ -84,15 +94,16 @@ const displayController = (() => {
             winningArea.innerHTML = displayController.activeUser.name + ' wins!'
             winningArea.classList.add('winning-area')
             wrapper.appendChild(winningArea)
+            winner = true;
         }
        })
     }
 
-    // function checkTie (){
-    //     gameBoard.board.foreach((item) => {
-    //         if (item)
-    //     }
-    //     )}
+    function checkTie (){
+     if (displayController.moves === 9 && winner == false) {
+         alert('tie')
+     }
+        }
 
     function newGame () {
         let square = document.querySelectorAll('.grid-square')
@@ -106,15 +117,19 @@ const displayController = (() => {
 
        })
        displayController.activeUser = Player1
+       displayController.winner = false;
+       displayController.moves = 0
+
        }
     
 
     return {
         Player1,
         Player2,
+        moves,
         switchTurn,
         checkWinner,
-        // checkTie,
+        checkTie,
         newGame,
         winningCombinations,
         activeUser
