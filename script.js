@@ -88,6 +88,12 @@ const displayController = (() => {
        })
     }
 
+    // function checkTie (){
+    //     gameBoard.board.foreach((item) => {
+    //         if (item)
+    //     }
+    //     )}
+
     function newGame () {
         let square = document.querySelectorAll('.grid-square')
         let squarearr = Array.from(square)
@@ -99,6 +105,7 @@ const displayController = (() => {
             winningArea.innerHTML = ""
 
        })
+       displayController.activeUser = Player1
        }
     
 
@@ -107,6 +114,7 @@ const displayController = (() => {
         Player2,
         switchTurn,
         checkWinner,
+        // checkTie,
         newGame,
         winningCombinations,
         activeUser

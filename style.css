@@ -4,10 +4,11 @@ html, body {
     display: flex;
     height: 100%;
     padding: 0;
+    font-family: monospace;
 }
 
 header {
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 
 button {
@@ -17,6 +18,7 @@ button {
     outline: none;
     border: 1px solid black;
     border-radius: 5px;
+    font-family: monospace;
 }
 
 button:hover {
@@ -46,15 +48,16 @@ button:hover {
 }
 
 .grid-square {
-    border: 1px solid black;
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 5rem;
     line-height: 0px;
 
 }
 
 .grid-square:hover {
     cursor: pointer;
+    background-color: rgb(202, 199, 199);
 }
