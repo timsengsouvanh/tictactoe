@@ -34,14 +34,24 @@ const gameBoard = (() => {
          displayController.moves++
          console.log(displayController.moves)
          displayController.checkTie()
+         color()
         }
-
        })
    })
+
+   //add color to winning squares
+   function color() {
+       squarearr.forEach((square, index) => {
+           if (board[index] == 'win'){
+            square.classList.add('victory')
+           }
+       })
+   }
 
 
     return {
         board,
+        color,
     };
     })();
 
@@ -87,6 +97,7 @@ const displayController = (() => {
 
     let wrapper = document.querySelector('.wrapper')
     let winningArea = document.createElement('div')
+    
 
     function checkWinner (){
        winningCombinations.forEach((item) => {
@@ -95,6 +106,9 @@ const displayController = (() => {
             winningArea.classList.add('winning-area')
             wrapper.appendChild(winningArea)
             winner = true;
+            gameBoard.board[item[0]] = 'win'
+            gameBoard.board[item[1]] = 'win'
+            gameBoard.board[item[2]] = 'win'
         }
        })
     }
@@ -115,7 +129,9 @@ const displayController = (() => {
         })
         squarearr.forEach((square) => {
             square.innerHTML = ""
+            square.classList.remove('victory')
             winningArea.innerHTML = ""
+
 
        })
        displayController.activeUser = Player1
